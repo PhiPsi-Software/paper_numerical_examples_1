@@ -1,0 +1,80 @@
+% Keywords file of PhiPsi.
+% Written by Fang Shi, USTC.
+% Data: 2023-08-23
+% Website: phipsi.top
+
+% Working directory.
+*Work_Directory
+X:\PhiPsi_Work\3d_simple_friction_crack_verify
+
+% Finename of input files.
+*Filename
+3d_simple_friction_crack_verify
+
+% Number of CPU cores.
+*Key_Num_Process
+4
+
+% 3-D problem.
+*Key_Dimension
+3
+
+% Number of initial cracks.
+*num_Crack
+3
+
+% Analysis type (Quasi-static).
+*Key_Analysis_Type
+1
+
+% Linear system solver (PCG-EBE).
+*Key_SLOE
+11
+
+% EBE-PCG Precondition on.
+*Key_EBE_Precondition
+1
+
+% Number of propagation step.
+*Num_Substeps
+1
+
+% Material(1-E,2-v,3-density,4-thick,5-St,6-KIc,7-Sc,8-20(blank))
+*Material_Para_1   
+20.0e9,0.2,2000.0,1.0,0.1e6,1.0e6,100.0e6,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+
+% Define the coordinates of each initial cracks (plane in 3D composed of four points) for 3D problem
+% (input format: x_of_circle_center,y_of_circle_center,z_of_circle_center,x_of_direction_vector,y_of_direction_vector,z_of_direction_vector,radius)
+*Crack3D_Cir_Coor_1
+50.0,50.0,50.0,1.0,0.0,0.0,20.0
+*Crack3D_Cir_Coor_2
+30.0,50.0,50.0,1.0,0.0,0.0,20.0
+*Crack3D_Cir_Coor_3
+70.0,50.0,50.0,1.0,0.0,0.0,20.0
+
+% Crack pressure.
+*Key_Crack_Inner_Pressure
+1
+*INI_CRACK_PRESSURE_1
+10.0e6
+
+% Tip enrichment.
+*Key_TipEnrich
+1
+
+% Method to calculate crack aperture.
+*Key_Crack_Aperture_Method
+1  % Equation (default)
+% 2  % Offset
+
+% Do not allow cracksto propagate.
+*Cracks_Allow_Propa
+0,0,0
+
+% Save vtk file for post-process.
+*Key_Save_vtk
+1
+
+% Do not close the DOS Window when the calculation is finished (default).
+*Key_Close_Window
+0

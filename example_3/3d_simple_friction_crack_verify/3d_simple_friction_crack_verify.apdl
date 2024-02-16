@@ -1,0 +1,93 @@
+!2023-08-23.
+finish
+/clear
+/FILNAME,3d_simple_friction_crack_verify
+/Titie,3d_simple_friction_crack_verify
+/PREP7
+/DSCALE,ALL,1.0
+/eshape,1
+/PNUM,KP,1
+/PNUM,LINE,1
+/PNUM,AREA,1
+/PNUM,VOLU,0
+/PNUM,NODE,0
+/PNUM,TABN,0
+/PNUM,SVAL,0
+/PNUM,DOMA,0
+/NUMBER,0
+!---------------------
+L  =  100  !长,x
+W  =  100  !宽,y
+H  =  100  !高,z
+num_mesh_x = 51
+num_mesh   = 31
+!---------------------
+et,1,185
+!---------------------
+/REPLO
+/VIEW,1,,-1
+/ANG,1
+/REP,FAST
+!---------------------
+mp,ex,1,20e9
+mp,nuxy,1,0.3
+!---------------------
+K,1,0,0,0
+k,2,L,0,0
+K,3,L,W,0
+K,4,0,W,0
+K,5,0,0,H
+k,6,L,0,H
+K,7,L,W,H
+K,8,0,W,H
+V,1,2,3,4,5,6,7,8
+!---------------------视角及显示
+/REPLO
+/VIEW,  1,  0.306110853806    , -0.802050055528    ,  0.512846813006
+/ANG,   1,  -34.0367734235
+/REPLO
+/DIST,1,1.08222638492,1
+/REP,FAST
+/PNUM,LINE,0
+/PNUM,AREA,1
+/PNUM,VOLU,0
+APLOT
+!---------------------
+allsel
+lsel,s,,,1,
+lsel,a,,,6,
+lsel,a,,,10,
+lsel,a,,,3,
+lesize,all,,,num_mesh_x,
+allsel
+lesize,all,,,num_mesh,
+!---------------------
+MSHAPE,0,3D
+MSHKEY,1
+VMESH,all
+!----------约束-----------
+!约束y自由度
+allsel
+asel,s,,,2,4,2
+NSLA,S,1
+D,all,uy
+
+!约束x自由度
+allsel
+asel,s,,,3,5,2
+NSLA,S,1
+D,all,ux
+allsel
+
+!约束z自由度
+allsel
+asel,s,,,1,6,5
+NSLA,S,1
+D,all,uz
+allsel
+!---------------------
+Ansys2PhiPsi_3D,'3d_simple_friction_crack_verify'
+/solu
+solve
+/post1
+PLNSOL, S,EQV, 0,1.0

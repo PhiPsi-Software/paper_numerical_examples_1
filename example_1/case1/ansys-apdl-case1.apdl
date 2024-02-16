@@ -1,0 +1,122 @@
+finish
+/clear
+/FILNAME,file
+/Titie,SHI Fang,hyit
+/PREP7
+/DSCALE,ALL,1.0
+/eshape,1
+/PNUM,KP,1
+/PNUM,LINE,1
+/PNUM,AREA,1
+/PNUM,VOLU,0
+/PNUM,NODE,0
+/PNUM,TABN,0
+/PNUM,SVAL,0
+/PNUM,DOMA,0
+/NUMBER,0
+!---------------------
+L  =  21  !长,x
+W  =  21  !宽,y
+H  =  21  !高,z
+size_mesh = 0.8
+pressure_of_crack1  = 10e6
+pressure_of_crack2  = 10e6
+
+! pressure_of_crack1  = 5e6
+! pressure_of_crack2  = 10e6
+
+crack_W     = 0.05
+crack_L     = 8
+!---------------------
+et,1,185
+!---------------------
+/REPLO
+/VIEW,1,,-1
+/ANG,1
+/REP,FAST
+!---------------------
+mp,ex,1,20e9
+mp,nuxy,1,0.2
+!---------------------
+K,1,0,0,0
+k,2,L,0,0
+K,3,L,W,0
+K,4,0,W,0
+K,5,0,0,H
+k,6,L,0,H
+K,7,L,W,H
+K,8,0,W,H
+V,1,2,3,4,5,6,7,8
+k,101,L/2-crack_L/2,L/2-crack_W/2,0
+k,102,L/2-crack_W/2,L/2-crack_W/2,0
+k,103,L/2-crack_W/2,L/2-crack_L/2,0
+k,104,L/2+crack_W/2,L/2-crack_L/2,0
+k,105,L/2+crack_W/2,L/2-crack_W/2,0
+k,106,L/2+crack_L/2,L/2-crack_W/2,0
+k,107,L/2+crack_L/2,L/2+crack_W/2,0
+k,108,L/2+crack_W/2,L/2+crack_W/2,0
+k,109,L/2+crack_W/2,L/2+crack_L/2,0
+k,110,L/2-crack_W/2,L/2+crack_L/2,0
+k,111,L/2-crack_W/2,L/2+crack_W/2,0
+k,112,L/2-crack_L/2,L/2+crack_W/2,0
+a,101,102,103,104,105,106,107,108,109,110,111,112
+VOFFST,7,21, ,  
+VSBV,       1,       2  
+
+!创建面的集合
+allsel
+asel,s,,,9,
+asel,a,,,19,
+asel,a,,,13,
+asel,a,,,15,
+CM,Area_Pressure1,AREA   
+allsel
+asel,s,,,18,
+asel,a,,,16,
+asel,a,,,10,
+asel,a,,,12,
+CM,Area_Pressure2,AREA   
+!---------------------视角及显示
+/REPLO
+/VIEW,  1,  0.306110853806    , -0.802050055528    ,  0.512846813006
+/ANG,   1,  -34.0367734235
+/REPLO
+/DIST,1,1.08222638492,1
+/REP,FAST
+/PNUM,LINE,0
+/PNUM,AREA,1
+/PNUM,VOLU,0
+APLOT
+!---------------------
+allsel
+lesize,all,size_mesh
+!---------------------
+! MSHAPE,0,3D
+! MSHKEY,1
+MSHAPE,1,3D 
+MSHKEY,0
+VMESH,all
+!----------约束-----------
+!约束全部面
+allsel
+asel,all
+asel,s,,,2,5,1
+NSLA,S,1
+D,all,all
+
+!施加压强
+allsel
+cmsel,s,Area_Pressure1,
+SFA,all,1,PRES,pressure_of_crack1
+allsel
+cmsel,s,Area_Pressure2,
+SFA,all,1,PRES,pressure_of_crack2
+allsel
+!---------------------
+! Ansys2PhiPsi_3D,'3D_Block_21x21x21_Sur_Fixed'
+/solu
+solve
+/post1
+! PLNSOL, S,EQV, 0,1.0
+! PLNSOL, U,Y, 0,1.0  
+PLNSOL, U,SUM, 0,1.0

@@ -1,0 +1,180 @@
+finish
+/clear
+/FILNAME,file
+/Titie,SHI Fang,hyit
+/PREP7
+/DSCALE,ALL,1.0
+/eshape,1
+/PNUM,KP,1
+/PNUM,LINE,1
+/PNUM,AREA,1
+/PNUM,VOLU,0
+/PNUM,NODE,0
+/PNUM,TABN,0
+/PNUM,SVAL,0
+/PNUM,DOMA,0
+/NUMBER,0
+
+!---------------------
+L  =  20  !长,x
+W  =  20  !宽,y
+H  =  20  !高,z
+! size_mesh = 0.5
+! size_mesh_fine = 0.08
+size_mesh_fine = 0.1
+
+pressure_of_crack1  = 10e6     !Crack1,垂直于x方向的裂缝
+pressure_of_crack2  = 10e6    !Crack2,垂直于y方向的裂缝
+pressure_of_crack3  = 10e6    !Crack3,垂直于z方向的裂缝
+
+! pressure_of_crack1  = 5e6     !Crack1,垂直于x方向的裂缝
+! pressure_of_crack2  = 10e6    !Crack2,垂直于y方向的裂缝
+! pressure_of_crack3  = 15e6    !Crack3,垂直于z方向的裂缝
+
+crack_W     = 0.05
+crack_L     = 8
+!---------------------
+et,1,185
+!---------------------
+/REPLO
+/VIEW,1,,-1
+/ANG,1
+/REP,FAST
+!---------------------
+mp,ex,1,20e9
+mp,nuxy,1,0.2
+!---------------------
+K,1,0,0,0
+k,2,L,0,0
+K,3,L,W,0
+K,4,0,W,0
+K,5,0,0,H
+k,6,L,0,H
+K,7,L,W,H
+K,8,0,W,H
+V,1,2,3,4,5,6,7,8
+
+/AUTO,1 
+/REP,FAST   
+
+k,101,L/2-crack_L/2,L/2-crack_W/2,(L-crack_L)/2.0
+k,102,L/2-crack_W/2,L/2-crack_W/2,(L-crack_L)/2.0
+k,103,L/2-crack_W/2,L/2-crack_L/2,(L-crack_L)/2.0
+k,104,L/2+crack_W/2,L/2-crack_L/2,(L-crack_L)/2.0
+k,105,L/2+crack_W/2,L/2-crack_W/2,(L-crack_L)/2.0
+k,106,L/2+crack_L/2,L/2-crack_W/2,(L-crack_L)/2.0
+k,107,L/2+crack_L/2,L/2+crack_W/2,(L-crack_L)/2.0
+k,108,L/2+crack_W/2,L/2+crack_W/2,(L-crack_L)/2.0
+k,109,L/2+crack_W/2,L/2+crack_L/2,(L-crack_L)/2.0
+k,110,L/2-crack_W/2,L/2+crack_L/2,(L-crack_L)/2.0
+k,111,L/2-crack_W/2,L/2+crack_W/2,(L-crack_L)/2.0
+k,112,L/2-crack_L/2,L/2+crack_W/2,(L-crack_L)/2.0
+
+a,101,102,103,104,105,106,107,108,109,110,111,112
+VOFFST,7,crack_L, ,  
+
+BLOCK,L/2-crack_L/2,L/2+crack_L/2,W/2-crack_L/2,W/2+crack_L/2,H/2-crack_W/2,H/2+crack_W/2,  
+
+VADD,2,3  
+VSBV,1,4
+
+wpof,,,H/2
+VSBW,2   
+VDELE,1, , ,1  
+
+wpro,,,90.000000
+wpof,,,L/2
+VSBW,3   
+VDELE,2, , ,1  
+
+wpro,,-90.000000,   
+wpof,,,W/2
+VSBW,1 
+VDELE,3, , ,1
+
+CSYS,0  
+WPCSYS,-1,0 
+
+!创建面的集合
+allsel
+asel,s,,,40,
+CM,Area_Pressure1,AREA    !Crack1,垂直于x方向的裂缝
+allsel
+asel,s,,,39,
+CM,Area_Pressure2,AREA    !Crack2,垂直于y方向的裂缝
+allsel
+asel,s,,,63,
+CM,Area_Pressure3,AREA    !Crack3,垂直于z方向的裂缝
+!---------------------视角及显示
+/REPLO
+/VIEW,  1,  0.717030350229    ,  0.676966002436    , -0.166085846466
+/ANG,   1,  -81.2216558430 
+/REPLO
+/DIST,1,1.08222638492,1
+/REP,FAST
+/PNUM,LINE,0
+/PNUM,AREA,1
+/PNUM,VOLU,0
+APLOT
+!---------------------
+allsel
+lsel,s,,,86,
+lsel,a,,,87,
+lsel,a,,,89,
+lesize,all,size_mesh_fine
+
+! allsel
+! lesize,all,size_mesh
+
+
+!---------------------
+! SMRT,2   !17万单元
+MSHAPE,1,3D 
+MSHKEY,0
+VMESH,all
+!----------约束-----------
+!约束全部外表面
+allsel
+asel,all
+asel,s,,,4,
+asel,a,,,6,
+asel,a,,,14,
+NSLA,S,1
+D,all,all
+!施加对称边界条件
+allsel
+asel,s,,,16
+NSLA,S,1
+d,all,ux
+allsel
+asel,s,,,17
+NSLA,S,1
+d,all,uy
+allsel
+asel,s,,,18
+NSLA,S,1
+d,all,uz
+
+
+
+!施加压强
+allsel
+cmsel,s,Area_Pressure1,
+SFA,all,1,PRES,pressure_of_crack1
+allsel
+cmsel,s,Area_Pressure2,
+SFA,all,1,PRES,pressure_of_crack2
+allsel
+cmsel,s,Area_Pressure3,
+SFA,all,1,PRES,pressure_of_crack3
+allsel
+!---------------------
+! Ansys2PhiPsi_3D,'3D_Block_21x21x21_Sur_Fixed'
+/solu
+solve
+/post1
+! PLNSOL, S,EQV, 0,1.0
+PLNSOL, U,X, 0,1.0  
+! PLNSOL, U,Y, 0,1.0  
+! PLNSOL, U,Z, 0,1.0  
+! PLNSOL, U,SUM, 0,1.0
