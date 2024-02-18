@@ -22,26 +22,8 @@ finish
 ! L_of_refined = 25   !加密区域的宽度
 ! H_of_refined = 1   !加密区域的高度
 ! size_mesh          = 15.0
-! ! size_mesh_of_L_refined  = 0.33
 ! num_of_mesh_of_L_refined  = 70
 ! num_of_mesh_of_refined_mesh_H = 3
-
-! !
-! ! L_of_refined = 25   !加密区域的宽度
-! ! H_of_refined = 6   !加密区域的高度
-! ! size_mesh          = 8.0
-! ! size_mesh_of_L_refined  = 0.35
-! ! num_of_mesh_of_refined_mesh_H = 7
-! !---------------------
-! ! L  =  150  !长,x
-! ! W  =  150  !宽,y
-! ! H  =  150  !高,z
-! ! !
-! ! L_of_refined = 25   !加密区域的宽度
-! ! H_of_refined = 8   !加密区域的高度
-! ! size_mesh          = 8.0
-! ! size_mesh_of_L_refined  = 0.55
-! ! num_of_mesh_of_refined_mesh_H = 7
 !---------------------
 L  =  200  !长,x
 W  =  200  !宽,y

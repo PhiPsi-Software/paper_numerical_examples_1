@@ -1,13 +1,7 @@
 % Written By: Shi Fang, 2019-11-06
 % Website: phipsi.top
-% Email: phipsi@sina.cn
 
 % Analysis solution for the 3D penny-shaped fracturing model.
-% Reference: 
-% (1)Savitski_2002_Propagation of a penny-shaped fluid-driven fracture in an impermeable rock-asymptotic solutions.
-% (2)Cherny_2016_Simulating fully 3D non-planar evolution of hydraulic fractures_Equations (69),(70),(71),(72)
-% (3)Zolfaghari_2019_Numerical model for a penny-shaped hydraulic fracture driven by laminar turbulent fluid in an impermeable rock_Appendix B
-
 clear all; close all; clc; format compact;  format long;
 
 
