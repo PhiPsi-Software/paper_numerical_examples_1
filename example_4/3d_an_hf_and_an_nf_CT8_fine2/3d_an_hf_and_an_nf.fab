@@ -1,0 +1,32 @@
+BEGIN FORMAT
+    Format = Ascii
+    XAxis = East
+    Scale = 50.000
+    No_Fractures = 1
+    No_TessFractures = 0
+    No_Nodes = 4
+    No_Properties = 3
+END FORMAT
+
+BEGIN PROPERTIES
+    Prop1    =    (Real*4)    "Permeability"
+    Prop2    =    (Real*4)    "Compressibility"
+    Prop3    =    (Real*4)    "Aperture"
+END PROPERTIES
+
+BEGIN SETS
+    Set1    =    "Set Definition 1"
+END SETS
+
+BEGIN FRACTURE
+    1    4    1    1000    1e-006    1e-006
+    1    0.429558378197    0.00000000    0.00000000000 
+    2    0.429558378197    0.00000000    0.50000000000 
+    3    0.1408832436      0.50000000    0.50000000000 
+    4    0.1408832436      0.50000000    0.00000000000 
+    0    -0.8660254037    -0.50000000    0.0000000000
+END FRACTURE
+
+BEGIN TESSFRACTURE
+END TESSFRACTURE
+
