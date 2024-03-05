@@ -1,0 +1,174 @@
+!     .................................................
+!             ____  _       _   ____  _____   _
+!            |  _ \| |     |_| |  _ \|  ___| |_|
+!            | |_) | |___   _  | |_) | |___   _
+!            |  _ /|  _  | | | |  _ /|___  | | |
+!            | |   | | | | | | | |    ___| | | |
+!            |_|   |_| |_| |_| |_|   |_____| |_|
+!     .................................................
+!     PhiPsi:     a general-purpose computational
+!                 mechanics program written in Fortran.
+!     Website:    http://phipsi.top
+!     Author:     Shi Fang from Huaiyin Institute of
+!                 Technology, HuaiAn, JiangSu, China
+!     Contact me: shifang@hyit.edu.cn
+!     --------------------------------
+!     This macro file is written to output files into PhiPsi for
+!     3D problems.
+!     These files include coordinates of each node, node list
+!     of each element, force information and boundary condition
+!     information.
+
+
+! Get the number of all nodes.
+allsel
+/AUTO,1
+/REP,FAST
+*get,nodenum,node,,num,max
+! Dim a matrix "nodepos" to store nodes coordinates.
+*dim,nodepos,array,nodenum,3
+*do,i,1,nodenum,1
+    ! Get the x coordinate of the current node.
+    *get,nodepos(i,1),node,i,loc,x
+	! Get the y coordinate of the current node.
+    *get,nodepos(i,2),node,i,loc,y
+	! Get the z coordinate of the current node.
+    *get,nodepos(i,3),node,i,loc,z
+*enddo
+
+!-------------------------------------------------------------------------
+!----------------- (1)Output nodes coordinates: arg1.node ----------------
+!-------------------------------------------------------------------------
+! Get the number of all elements
+*get,elemnum,elem,,num,max
+! Dim a matrix "elemlist" to store nodes lists.
+*dim,elemlist,array,elemnum,20
+*do,i,1,elemnum,1
+    *do,j,1,20,1
+	    ! Get nodes lists of the current element.
+        *get,elemlist(i,j),elem,i,node,j
+    *enddo
+*enddo
+! Create a new file *.node.
+*cfopen,arg1,node
+! Write into *.node.
+*vwrite,nodepos(1,1),nodepos(1,2),nodepos(1,3)
+(e16.8,' ',e16.8,' 'e16.8)
+! Close *.node.
+*cfclos,arg1,node
+
+!---------------------------------------------------------------------------------------------
+!------------ (2)Output node list and material number of each element: arg1.elem -------------
+!---------------------------------------------------------------------------------------------
+*dim,nodenumelem,array,elemnum,1
+*do,i,1,elemnum,1
+    *do,j,1,20,1
+	    *if, elemlist(i,j),NE,0,then
+            nodenumelem(i)=nodenumelem(i)+1
+		*endif
+    *enddo
+*enddo
+*dim,n4,array,4
+*dim,n8,array,8
+*cfopen,arg1,elem
+*do,i,1,elemnum,1
+    ! Get the material number of the current element
+	*get,num_material,elem,i,attr,mat
+    ! 8 nodes element
+    *if,nodenumelem(i),EQ,8,then
+        *do,j,1,8,1
+            n8(j)=elemlist(i,j)
+        *enddo
+        *vwrite,n8(1),n8(2),n8(3),n8(4),n8(5),n8(6),n8(7),n8(8),num_material
+        (F8.0,' ',F8.0,' ',F8.0,' ',F8.0,' ',F8.0,' ',F8.0,' ',F8.0,' ',F8.0,' ',F8.0)
+	*endif
+*enddo
+*cfclos,arg1,elem
+
+!-------------------------------------------------------------------------
+!--------- (3)Output boundary condition in x direction: arg1.boux --------
+!-------------------------------------------------------------------------
+Yes_output_boux = 0
+*do,i,1,nodenum,1
+    *GET,X_bou,NODE,i,D,UX, ,
+	*if,X_bou,EQ,0.0,then
+        Yes_output_boux=1
+		*exit
+	*endif
+*enddo
+*if,Yes_output_boux,eq,1,then
+*cfopen,arg1,boux
+*do,i,1,nodenum,1
+    *GET,X_bou,NODE,i,D,UX, ,
+	*if,X_bou,EQ,0.0,then
+	    *vwrite,i
+        (F8.0)
+	*endif
+*enddo
+*cfclos,arg1,boux
+*endif
+
+!-------------------------------------------------------------------------
+!--------- (4)Output boundary condition in y direction: arg1.bouy --------
+!-------------------------------------------------------------------------
+*cfopen,arg1,bouy
+*do,i,1,nodenum,1
+    *GET,Y_bou,NODE,i,D,UY, ,
+	*if,Y_bou,EQ,0.0,then
+	    *vwrite,i
+        (F8.0)
+	*endif
+*enddo
+*cfclos,arg1,bouy
+
+!-------------------------------------------------------------------------
+!--------- (5)Output boundary condition in z direction: arg1.bouz --------
+!-------------------------------------------------------------------------
+*cfopen,arg1,bouz
+*do,i,1,nodenum,1
+    *GET,Z_bou,NODE,i,D,UZ, ,
+	*if,Z_bou,EQ,0.0,then
+	    *vwrite,i
+        (F8.0)
+	*endif
+*enddo
+*cfclos,arg1,bouZ
+
+!-------------------------------------------------------------------------
+!--------- (6)Output force information in x direction: arg1.focx ---------
+!-------------------------------------------------------------------------
+*cfopen,arg1,focx
+*do,i,1,nodenum,1
+	*GET,X_Force,NODE,i,F,FX, ,
+	*if,X_Force,NE,0.0,then
+        *vwrite,i,X_Force
+        (F8.0,' ',e16.8)
+	*endif
+*enddo
+*cfclos,arg1,focx
+
+!-------------------------------------------------------------------------
+!--------- (7)Output force information in y direction: arg1.focy ---------
+!-------------------------------------------------------------------------
+*cfopen,arg1,focy
+*do,i,1,nodenum,1
+	*GET,Y_Force,NODE,i,F,FY, ,
+	*if,Y_Force,NE,0.0,then
+        *vwrite,i,Y_Force
+        (F8.0,' ',e16.8)
+	*endif
+*enddo
+*cfclos,arg1,focy
+
+!-------------------------------------------------------------------------
+!--------- (8)Output force information in z direction: arg1.focz ---------
+!-------------------------------------------------------------------------
+*cfopen,arg1,focz
+*do,i,1,nodenum,1
+	*GET,Z_Force,NODE,i,F,FZ, ,
+	*if,Z_Force,NE,0.0,then
+        *vwrite,i,Z_Force
+        (F8.0,' ',e16.8)
+	*endif
+*enddo
+*cfclos,arg1,focz
