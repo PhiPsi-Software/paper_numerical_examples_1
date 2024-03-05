@@ -15,12 +15,9 @@ finish
 /PNUM,DOMA,0
 /NUMBER,0
 !---------------------
-! L  =  50  !长,x
-! W  =  50  !宽,y
-! H  =  50  !高,z
-L  =  0.5  !长,x
-W  =  0.5  !宽,y
-H  =  0.5  !高,z
+L  =  0.5  !x
+W  =  0.5  !y
+H  =  0.5  !z
 
 ! num_mesh = 41
 ! num_mesh = 31
@@ -58,7 +55,7 @@ k,6,L,0,H
 K,7,L,W,H
 K,8,0,W,H
 V,1,2,3,4,5,6,7,8
-!---------------------视角及显示
+!---------------------
 /REPLO
 /VIEW,  1,  0.306110853806    , -0.802050055528    ,  0.512846813006
 /ANG,   1,  -34.0367734235
@@ -76,32 +73,26 @@ lesize,all,,,num_mesh,
 MSHAPE,0,3D
 MSHKEY,1
 VMESH,all
-!----------约束-----------
-!约束y自由度
+!---------------------
 allsel
-! asel,s,,,2,4,2
 asel,s,,,2,
 NSLA,S,1
 D,all,uy
 
-!约束x自由度
 allsel
-! asel,s,,,3,5,2
 asel,s,,,5,
 NSLA,S,1
 D,all,ux
 allsel
 
-!约束z自由度
 allsel
-! asel,s,,,1,6,5
 asel,s,,,1,,
 NSLA,S,1
 D,all,uz
 
 allsel
 !----------Force-----------
-!载荷(顶部)-z
+!Force-z
 allsel
 asel,s,,,6,,
 NSLA,S,0
@@ -117,7 +108,7 @@ F,all,FZ,-Top_Force/4
 allsel
 
 
-!载荷(后部)-y
+!Force-y
 allsel
 asel,s,,,4,,
 NSLA,S,0
@@ -134,7 +125,7 @@ NSLK,R,1
 F,all,FY,-Front_Force/4
 allsel
 
-!载荷(右部)-x
+!Force-x
 allsel
 asel,s,,,3,,
 NSLA,S,0

@@ -15,15 +15,12 @@ finish
 /PNUM,DOMA,0
 /NUMBER,0
 !---------------------
-L  =  21  !长,x
-W  =  21  !宽,y
-H  =  21  !高,z
+L  =  21  !x
+W  =  21  !y
+H  =  21  !z
 size_mesh = 0.8
 pressure_of_crack1  = 10e6
 pressure_of_crack2  = 10e6
-
-! pressure_of_crack1  = 5e6
-! pressure_of_crack2  = 10e6
 
 crack_W     = 0.05
 crack_L     = 8
@@ -63,7 +60,7 @@ a,101,102,103,104,105,106,107,108,109,110,111,112
 VOFFST,7,21, ,  
 VSBV,       1,       2  
 
-!创建面的集合
+!Create area set
 allsel
 asel,s,,,9,
 asel,a,,,19,
@@ -76,7 +73,7 @@ asel,a,,,16,
 asel,a,,,10,
 asel,a,,,12,
 CM,Area_Pressure2,AREA   
-!---------------------视角及显示
+!---------------------
 /REPLO
 /VIEW,  1,  0.306110853806    , -0.802050055528    ,  0.512846813006
 /ANG,   1,  -34.0367734235
@@ -91,20 +88,17 @@ APLOT
 allsel
 lesize,all,size_mesh
 !---------------------
-! MSHAPE,0,3D
-! MSHKEY,1
 MSHAPE,1,3D 
 MSHKEY,0
 VMESH,all
-!----------约束-----------
-!约束全部面
+!----------constraint-----------
 allsel
 asel,all
 asel,s,,,2,5,1
 NSLA,S,1
 D,all,all
 
-!施加压强
+!Apply pressure.
 allsel
 cmsel,s,Area_Pressure1,
 SFA,all,1,PRES,pressure_of_crack1

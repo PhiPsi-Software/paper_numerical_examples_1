@@ -13,7 +13,7 @@ init(autoreset=True) #自动恢复默认颜色
 
 print(Fore.CYAN + "  **********************************************************************")
 print(Fore.CYAN + "  ****                                                              ****")
-print(Fore.CYAN + "  ****              PhiPsi Results File Deleter V1.0                ****")
+print(Fore.CYAN + "  ****              PhiPsi Results File Deleter V1.6                ****")
 print(Fore.CYAN + "  ****                                                              ****")
 print(Fore.CYAN + "  **********************************************************************")
 print(Fore.CYAN + "  > Features:                                                           ")
@@ -31,6 +31,7 @@ print(Fore.CYAN + " ")
 # Version 1.3 (2021-08-01): Add '.bat'.
 # Version 1.4 (2021-12-19): Add '.dat'.
 # Version 1.5 (2022-07-24): Add '.fab' and '.frd'.
+# Version 1.6 (2023-07-29): Add '.kpp'.
 
 # current_folder= "D:\PhiPsi_Project\PhiPsi_Work\3D_Block_25x25x25_Fixed"   #不正确
 # current_folder= "D:/PhiPsi_Project/PhiPsi_work/3D_Block_25x25x25_Fixed/"  #正确
@@ -54,7 +55,7 @@ else:
     sys.exit() 
     
 #不删除的文件类型后缀
-Keeped_File_Type = ('.apdl','.apdb','.boux','.bouy','.bouz','.elem','.node','.focx','.focy','.focz','.buxn','.buyn','.buzn','.ivex','.ivey','.ivez','.fbvl','.fbiv','.fbqn','.eqac','.bhpc','.wppg','.data','.mesh','.dofx','.dofy','.dofz','.iges','.igs','.step','.stl','.acis','.stp','.IGES','.IGS','.STEP','.STL','.ACIS','.STP','.bat','.in','.dat','.fab','.frd','.istn','.log','.kpp','.x_t','.surf','.m')
+Keeped_File_Type = ('.apdl','.apdb','.boux','.bouy','.bouz','.elem','.node','.focx','.focy','.focz','.buxn','.buyn','.buzn','.ivex','.ivey','.ivez','.fbvl','.fbiv','.fbqn','.eqac','.bhpc','.wppg','.data','.mesh','.dofx','.dofy','.dofz','.iges','.igs','.step','.stl','.acis','.stp','.IGES','.IGS','.STEP','.STL','.ACIS','.STP','.bat','.in','.dat','.fab','.frd','.istn','.tpen','.bken','.rten','.hlen','.log','.x_t','.kpp','.surf','.m')
     
 #假如文件夹存在,则执行删除操作
 if(Yes_Folder_Exists==True):

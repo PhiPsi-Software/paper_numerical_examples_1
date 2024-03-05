@@ -16,20 +16,14 @@ finish
 /NUMBER,0
 
 !---------------------
-L  =  20  !长,x
-W  =  20  !宽,y
-H  =  20  !高,z
-! size_mesh = 0.5
-! size_mesh_fine = 0.08
+L  =  20  !x
+W  =  20  !y
+H  =  20  !z
 size_mesh_fine = 0.1
 
-pressure_of_crack1  = 10e6     !Crack1,垂直于x方向的裂缝
-pressure_of_crack2  = 10e6    !Crack2,垂直于y方向的裂缝
-pressure_of_crack3  = 10e6    !Crack3,垂直于z方向的裂缝
-
-! pressure_of_crack1  = 5e6     !Crack1,垂直于x方向的裂缝
-! pressure_of_crack2  = 10e6    !Crack2,垂直于y方向的裂缝
-! pressure_of_crack3  = 15e6    !Crack3,垂直于z方向的裂缝
+pressure_of_crack1  = 10e6    !Crack1
+pressure_of_crack2  = 10e6    !Crack2
+pressure_of_crack3  = 10e6    !Crack3
 
 crack_W     = 0.05
 crack_L     = 8
@@ -95,17 +89,17 @@ VDELE,3, , ,1
 CSYS,0  
 WPCSYS,-1,0 
 
-!创建面的集合
+!Create area set
 allsel
 asel,s,,,40,
-CM,Area_Pressure1,AREA    !Crack1,垂直于x方向的裂缝
+CM,Area_Pressure1,AREA    !Crack1
 allsel
 asel,s,,,39,
-CM,Area_Pressure2,AREA    !Crack2,垂直于y方向的裂缝
+CM,Area_Pressure2,AREA    !Crack2
 allsel
 asel,s,,,63,
-CM,Area_Pressure3,AREA    !Crack3,垂直于z方向的裂缝
-!---------------------视角及显示
+CM,Area_Pressure3,AREA    !Crack3
+!---------------------
 /REPLO
 /VIEW,  1,  0.717030350229    ,  0.676966002436    , -0.166085846466
 /ANG,   1,  -81.2216558430 
@@ -123,17 +117,12 @@ lsel,a,,,87,
 lsel,a,,,89,
 lesize,all,size_mesh_fine
 
-! allsel
-! lesize,all,size_mesh
-
 
 !---------------------
-! SMRT,2   !17万单元
 MSHAPE,1,3D 
 MSHKEY,0
 VMESH,all
-!----------约束-----------
-!约束全部外表面
+!----------constraint-----------
 allsel
 asel,all
 asel,s,,,4,
@@ -141,7 +130,7 @@ asel,a,,,6,
 asel,a,,,14,
 NSLA,S,1
 D,all,all
-!施加对称边界条件
+!Symmetric boundary conditions are applied
 allsel
 asel,s,,,16
 NSLA,S,1
@@ -157,7 +146,7 @@ d,all,uz
 
 
 
-!施加压强
+!Apply pressure.
 allsel
 cmsel,s,Area_Pressure1,
 SFA,all,1,PRES,pressure_of_crack1
