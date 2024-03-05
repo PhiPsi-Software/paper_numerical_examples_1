@@ -1,12 +1,23 @@
 -------------------------------
       PhiPsi Runing log
 -------------------------------
-Start time: 20240305, 20:30:39
--------------------------------
-      PhiPsi Runing log
--------------------------------
-Start time: 20240305, 20:32: 4
--------------------------------
-      PhiPsi Runing log
--------------------------------
-Start time: 20240305, 20:33: 6
+Start time: 20240305, 20:54: 1
+Filename:                  3D_Block_21x21x21_Sur_Fixed
+Working directory:         X:\PhiPsi_Work\3D_Block_21x21x21_Sur_Fixed
+Dimension of the problem:  3D
+3D Block model:            no
+Large strain formulation:  no
+Analysis type:             static analysis
+Data format:               formatted
+Linear solver:             PCG
+Number of elements:        42875
+Number of nodes:           46656
+Number of initial cracks:  2
+Number of initial circle holes:0
+Number of initial ellipse holes:0
+Number of circle inclusions:0
+Number of polygon inclusions:0
+Main program: PhiPsi3D_Static
+End time: 20240305, 20:55:36
+Total elapsed CPU time:       95 s,     1.5833 mins,     0.0264 hours
+
