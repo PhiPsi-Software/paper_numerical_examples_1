@@ -81,9 +81,6 @@ exa_3D_HF_Nonplanar
 % Smooth crack front: using Tubin scheme.
 *Key_Smooth_Front
 6
-% Crack propagation factor.
-% *Factor_Propagation
-% 1.65
 % Crack propagation length (Unit: m).
 *Propagation_Length
 5.0  % 5 meters.
