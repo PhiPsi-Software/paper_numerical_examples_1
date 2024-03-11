@@ -30,8 +30,15 @@ X:\PhiPsi_Work\3D_HF_Nonplanar
 
 % Key_3D_HF_Time_Step_Method
 *Key_3D_HF_Time_Step_Method
-1 % Newton-Raphson
-% 2 % Bisection
+1
+*SlipWater_Max_Time_Steps_3D
+3
+*SlipWater_Max_Pres_Steps_3D
+3
+*SlipWater_Time_Step_Conv_Check
+0
+*SlipWater_Pres_Step_Conv_Check
+0
 
 % Linear system solver (EBE-PCG).
 *Key_SLOE
@@ -47,6 +54,8 @@ X:\PhiPsi_Work\3D_HF_Nonplanar
 
 % Contact of crack surface.
 *Key_Contact
+1
+*Max_Contact_Iter
 1
 
 % Crack propagation behavior: propagate for posotive K.
