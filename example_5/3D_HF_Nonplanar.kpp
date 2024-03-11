@@ -10,7 +10,7 @@ X:\PhiPsi_Work\3D_HF_Nonplanar
 
 % Finename of input files.
 *Filename
-exa_3D_HF_Nonplanar
+3D_HF_Nonplanar
 
 % Number of CPU cores.
 *Key_Num_Process
