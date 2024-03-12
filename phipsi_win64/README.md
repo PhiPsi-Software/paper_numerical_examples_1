@@ -235,86 +235,86 @@ For 3D problems, this file should be presented in the format ($x$, $y$, $z$), fo
 This file defines the 4 nodes of each quadrilateral element. The number of rows in this file is the same as the number of elements. For 2D problems, this file should be presented in the format ($node_1$, $node_2$, $node_3$, $node_4$ , Material_Number). For example:
 
 ~~~bash
- 1.       3.      81.      62.       1.
- 3.       4.     100.      81.       1.
- 4.       5.     119.     100.       1.
- 5.       6.     138.     119.       1.
- 6.       7.     157.     138.       1.
- 7.       8.     176.     157.       2.
- 8.       9.     195.     176.       2.
- 9.      10.     214.     195.       2.
-10.      11.     233.     214.       2.
-11.      12.     252.     233.       2.
+ 1       3      81      62       1
+ 3       4     100      81       1
+ 4       5     119     100       1
+ 5       6     138     119       1
+ 6       7     157     138       1
+ 7       8     176     157       2
+ 8       9     195     176       2
+ 9      10     214     195       2
+10      11     233     214       2
+11      12     252     233       2
 ......
 ~~~                                
 For 3D problems, this file defines the 8 nodes of each quadrilateral element, and the format is ($node_1$, $node_2$, $node_3$, $node_4$, $node_5$, $node_6$, $node_7$, $node_8$, Material_Number). For example:
 
 ~~~bash
-  1.       3.      21.      20.      50.      51.     153.     121.       1.
-  2.       4.      25.      21.      51.      55.     169.     153.       1.
-  3.       5.      29.      25.      55.      59.     185.     169.       1.
-  4.       6.      33.      29.      59.      63.     201.     185.       1.
-  5.       2.       8.      33.      63.      38.      76.     201.       1.
- 1.       21.      22.      19.     121.     153.     157.     125.       2.
- 2.       25.      26.      22.     153.     169.     173.     157.       2.
- 3.       29.      30.      26.     169.     185.     189.     173.       2.
- 4.       33.      34.      30.     185.     201.     205.     189.       2.
- 5.        8.       9.      34.     201.      76.      80.     205.       2.
+  1       3      21      20      50      51     153     121       1
+  2       4      25      21      51      55     169     153       1
+  3       5      29      25      55      59     185     169       1
+  4       6      33      29      59      63     201     185       1
+  5       2       8      33      63      38      76     201       1
+  1      21      22      19     121     153     157     125       2
+  2      25      26      22     153     169     173     157       2
+  3      29      30      26     169     185     189     173       2
+  4      33      34      30     185     201     205     189       2
+  5       8       9      34     201      76      80     205       2
  ......
 ~~~
                                  
 ### 4.2.3 *.boux, *.bouy, *.bouz
 These three files contain information about boundary conditions, define nodes whose degrees of freedom are constrained in $x$, $y$, and $z$ directions, respectively. For example, the following lines presented in *.bouy file indicates that $y$ degrees of freedom of nodes 50, 92, 97, 98, 99 are constrained:
 ~~~bash
-	50.
-	92.
-	97.
-	98.
-	99.
+	50
+	92
+	97
+	98
+	99
 ~~~                
 It should be noted that *.bouz is only available for 3D problems.
 
 ### 4.2.4 *.focx, *.focy, *.focz
 These three files contain information about external forces, define nodes with force applied in $x$, $y$, and $z$ directions, respectivly. For exampe, the following lines presented in *.focx file indicates that nodes 487 to 489 are under the action of force at 4.5 KN in $x$ direction:
 ~~~bash
-	487.   0.45000000E+04
-	488.   0.45000000E+04
-	489.   0.45000000E+04
+	487   0.45000000E+04
+	488   0.45000000E+04
+	489   0.45000000E+04
 ~~~			
 It should be noted that *.focz is only available for 3D problems.
 
 ### 4.2.5 *.buxn, *.buyn, *.buzn
 These three files contain information about non-zero boundary conditions, define nodes whose degrees of freedom are constrained at a non-zero value in $x$, $y$, and $z$ directions, respectively. For example, the following lines presented in *.buxn file indicates that degrees of freedom in the $x$ direction of nodes 2, 17, 18 are constrained at 0.01:
 ~~~bash
-  1.    0.10000000E-01
-  2.    0.10000000E-01
-  3.    0.10000000E-01
+  1    0.10000000E-01
+  2    0.10000000E-01
+  3    0.10000000E-01
 ~~~		       
 It should be noted that *.buzn is only available for 3D problems.
 
 ### 4.2.6 *.fbvl
 This file is necessary for field problems and defines field values of specified nodes. This file should be presented in the format (node_number, field_value), for example:
 ~~~bash
- 1.  -0.30000000E+02
- 2.  -0.30000000E+02
- 3.  -0.30000000E+02
- 4.  -0.30000000E+02
- 5.  -0.30000000E+02
- 6.  -0.30000000E+02
- 7.  -0.30000000E+02
- 8.  -0.30000000E+02
- 9.  -0.30000000E+02
-10.  -0.30000000E+02
+ 1  -0.30000000E+02
+ 2  -0.30000000E+02
+ 3  -0.30000000E+02
+ 4  -0.30000000E+02
+ 5  -0.30000000E+02
+ 6  -0.30000000E+02
+ 7  -0.30000000E+02
+ 8  -0.30000000E+02
+ 9  -0.30000000E+02
+10  -0.30000000E+02
 ......
 ~~~
 			 
 ### 4.2.7 *.fbqn
 This file is necessary for field problem and defines flux of specified nodes. This file should be presented in the format (node_number, flux), for example
 ~~~bash
-1.    1.00000000E+00
-2.    1.00000000E+00
-3.    1.00000000E+00
-4.    1.00000000E+00
+1    1.00000000E+00
+2    1.00000000E+00
+3    1.00000000E+00
+4    1.00000000E+00
 ......
 ~~~			 
 ### 4.2.8 *.eqac

@@ -334,74 +334,74 @@ FEM
 </code></pre>
 <h3 id="422-elem">4.2.2 *.elem</h3>
 <p>This file defines the 4 nodes of each quadrilateral element. The number of rows in this file is the same as the number of elements. For 2D problems, this file should be presented in the format (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>d</mi><msub><mi>e</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">node_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>d</mi><msub><mi>e</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">node_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>d</mi><msub><mi>e</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">node_3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>d</mi><msub><mi>e</mi><mn>4</mn></msub></mrow><annotation encoding="application/x-tex">node_4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> , Material_Number). For example:</p>
-<pre><code class="language-bash"> 1.       3.      81.      62.       1.
- 3.       4.     100.      81.       1.
- 4.       5.     119.     100.       1.
- 5.       6.     138.     119.       1.
- 6.       7.     157.     138.       1.
- 7.       8.     176.     157.       2.
- 8.       9.     195.     176.       2.
- 9.      10.     214.     195.       2.
-10.      11.     233.     214.       2.
-11.      12.     252.     233.       2.
+<pre><code class="language-bash"> 1       3      81      62       1
+ 3       4     100      81       1
+ 4       5     119     100       1
+ 5       6     138     119       1
+ 6       7     157     138       1
+ 7       8     176     157       2
+ 8       9     195     176       2
+ 9      10     214     195       2
+10      11     233     214       2
+11      12     252     233       2
 ......
 </code></pre>
 <p>For 3D problems, this file defines the 8 nodes of each quadrilateral element, and the format is (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>d</mi><msub><mi>e</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">node_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>d</mi><msub><mi>e</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">node_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>d</mi><msub><mi>e</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">node_3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>d</mi><msub><mi>e</mi><mn>4</mn></msub></mrow><annotation encoding="application/x-tex">node_4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>d</mi><msub><mi>e</mi><mn>5</mn></msub></mrow><annotation encoding="application/x-tex">node_5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>d</mi><msub><mi>e</mi><mn>6</mn></msub></mrow><annotation encoding="application/x-tex">node_6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>d</mi><msub><mi>e</mi><mn>7</mn></msub></mrow><annotation encoding="application/x-tex">node_7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>o</mi><mi>d</mi><msub><mi>e</mi><mn>8</mn></msub></mrow><annotation encoding="application/x-tex">node_8</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8444em;vertical-align:-0.15em;"></span><span class="mord mathnormal">n</span><span class="mord mathnormal">o</span><span class="mord mathnormal">d</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">8</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, Material_Number). For example:</p>
-<pre><code class="language-bash">  1.       3.      21.      20.      50.      51.     153.     121.       1.
-  2.       4.      25.      21.      51.      55.     169.     153.       1.
-  3.       5.      29.      25.      55.      59.     185.     169.       1.
-  4.       6.      33.      29.      59.      63.     201.     185.       1.
-  5.       2.       8.      33.      63.      38.      76.     201.       1.
- 1.       21.      22.      19.     121.     153.     157.     125.       2.
- 2.       25.      26.      22.     153.     169.     173.     157.       2.
- 3.       29.      30.      26.     169.     185.     189.     173.       2.
- 4.       33.      34.      30.     185.     201.     205.     189.       2.
- 5.        8.       9.      34.     201.      76.      80.     205.       2.
+<pre><code class="language-bash">  1       3      21      20      50      51     153     121       1
+  2       4      25      21      51      55     169     153       1
+  3       5      29      25      55      59     185     169       1
+  4       6      33      29      59      63     201     185       1
+  5       2       8      33      63      38      76     201       1
+  1      21      22      19     121     153     157     125       2
+  2      25      26      22     153     169     173     157       2
+  3      29      30      26     169     185     189     173       2
+  4      33      34      30     185     201     205     189       2
+  5       8       9      34     201      76      80     205       2
  ......
 </code></pre>
 <h3 id="423-boux-bouy-bouz">4.2.3 *.boux, *.bouy, *.bouz</h3>
 <p>These three files contain information about boundary conditions, define nodes whose degrees of freedom are constrained in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>, and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span> directions, respectively. For example, the following lines presented in *.bouy file indicates that <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span> degrees of freedom of nodes 50, 92, 97, 98, 99 are constrained:</p>
-<pre><code class="language-bash">	50.
-	92.
-	97.
-	98.
-	99.
+<pre><code class="language-bash">	50
+	92
+	97
+	98
+	99
 </code></pre>
 <p>It should be noted that *.bouz is only available for 3D problems.</p>
 <h3 id="424-focx-focy-focz">4.2.4 *.focx, *.focy, *.focz</h3>
 <p>These three files contain information about external forces, define nodes with force applied in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>, and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span> directions, respectivly. For exampe, the following lines presented in *.focx file indicates that nodes 487 to 489 are under the action of force at 4.5 KN in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> direction:</p>
-<pre><code class="language-bash">	487.   0.45000000E+04
-	488.   0.45000000E+04
-	489.   0.45000000E+04
+<pre><code class="language-bash">	487   0.45000000E+04
+	488   0.45000000E+04
+	489   0.45000000E+04
 </code></pre>
 <p>It should be noted that *.focz is only available for 3D problems.</p>
 <h3 id="425-buxn-buyn-buzn">4.2.5 *.buxn, *.buyn, *.buzn</h3>
 <p>These three files contain information about non-zero boundary conditions, define nodes whose degrees of freedom are constrained at a non-zero value in <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">y</span></span></span></span>, and <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi></mrow><annotation encoding="application/x-tex">z</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.04398em;">z</span></span></span></span> directions, respectively. For example, the following lines presented in *.buxn file indicates that degrees of freedom in the <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">x</span></span></span></span> direction of nodes 2, 17, 18 are constrained at 0.01:</p>
-<pre><code class="language-bash">  1.    0.10000000E-01
-  2.    0.10000000E-01
-  3.    0.10000000E-01
+<pre><code class="language-bash">  1    0.10000000E-01
+  2    0.10000000E-01
+  3    0.10000000E-01
 </code></pre>
 <p>It should be noted that *.buzn is only available for 3D problems.</p>
 <h3 id="426-fbvl">4.2.6 *.fbvl</h3>
 <p>This file is necessary for field problems and defines field values of specified nodes. This file should be presented in the format (node_number, field_value), for example:</p>
-<pre><code class="language-bash"> 1.  -0.30000000E+02
- 2.  -0.30000000E+02
- 3.  -0.30000000E+02
- 4.  -0.30000000E+02
- 5.  -0.30000000E+02
- 6.  -0.30000000E+02
- 7.  -0.30000000E+02
- 8.  -0.30000000E+02
- 9.  -0.30000000E+02
-10.  -0.30000000E+02
+<pre><code class="language-bash"> 1  -0.30000000E+02
+ 2  -0.30000000E+02
+ 3  -0.30000000E+02
+ 4  -0.30000000E+02
+ 5  -0.30000000E+02
+ 6  -0.30000000E+02
+ 7  -0.30000000E+02
+ 8  -0.30000000E+02
+ 9  -0.30000000E+02
+10  -0.30000000E+02
 ......
 </code></pre>
 <h3 id="427-fbqn">4.2.7 *.fbqn</h3>
 <p>This file is necessary for field problem and defines flux of specified nodes. This file should be presented in the format (node_number, flux), for example</p>
-<pre><code class="language-bash">1.    1.00000000E+00
-2.    1.00000000E+00
-3.    1.00000000E+00
-4.    1.00000000E+00
+<pre><code class="language-bash">1    1.00000000E+00
+2    1.00000000E+00
+3    1.00000000E+00
+4    1.00000000E+00
 ......
 </code></pre>
 <h3 id="428-eqac">4.2.8 *.eqac</h3>
