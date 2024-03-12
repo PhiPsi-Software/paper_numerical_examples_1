@@ -1,0 +1,34 @@
+% This is a PhiPsi kpp file example written by Shi Fang.
+% Pay attention to *Work_Directory, some modification might be necessary!
+
+% Working directory.
+*Work_Directory
+X:\PhiPsi Work\FEM
+
+% Filename of input files.
+*Filename
+FEM
+
+% Analysis type (Quasi-static).
+*Key_Analysis_Type
+1
+
+% Plane stress.
+*Key_Type_2D
+1
+
+% Linear system solver (SuperLU).
+*Key_SLOE
+9
+
+% Number of propagation steps.
+*Num_Substeps
+1
+
+% Material(1-E,2-v,3-density,4-thick,5-St,6-KIc,7-Sc,8-20(blank))
+*Material_Para_1
+70.0e9,0.3,2700.0,1.0,1.0e6,1.0e6,100.0e6,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+
+% Play sound (using python2.7).
+*Key_Play_Sounds
+1
