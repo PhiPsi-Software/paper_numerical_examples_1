@@ -1,2 +1,2 @@
-Supplementary data: input files of numerical examples and the PhiPsi executable file.
+Supplementary data for the paper Modeling fluid-driven propagation of 3D complex crossing fractures with the extended finite element method: input files of numerical examples and the PhiPsi executable file.
 Usage of PhiPsi can be found in http://www.phipsi.top
